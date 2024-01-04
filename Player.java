@@ -9,8 +9,12 @@ public class Player {
     private String charName;
     private Scanner input = new Scanner(System.in);
 
+    private Inventory inventory;
+
     public Player(String name) {
+
         this.name = name;
+        this.inventory = new Inventory();
     }
 
 
@@ -31,7 +35,7 @@ public void selectChar() {
 
     int selectChar;
     boolean isSelectCharBound;
-    System.out.println("---------------------");
+    System.out.println("-----------------------------------------");
     System.out.print("Lütfen bir karakter giriniz:  ");
     do {
 
@@ -53,13 +57,18 @@ public void selectChar() {
     }
 
     System.out.println(charList[selectChar-1].getName()+" Karakterini seçtiniz!");
+
     System.out.println(charList[selectChar-1]);
+    System.out.println("-----------------------------------------");
 
 }
 
 
 
+
+
     public void initPlayer(GameChar gameChar){
+
         this.setDamage(gameChar.getDamage());
         this.setHealth(gameChar.getHealth());
         this.setMoney(gameChar.getMoney());
@@ -68,8 +77,19 @@ public void selectChar() {
 }
 
 
+
+    public void  printPlayerInfo(){
+        System.out.println("Oyuncu Güncel Durum: ");
+        System.out.println(
+                "Silah = " + this.getInventory().getWeapon().getName()+
+                ", Hasar = " + this.getDamage() +
+                ", Sağlık = " + this.getHealth() +
+                ", Para = " + this.getMoney());
+}
+
+
     public int getDamage() {
-        return damage;
+        return this.damage + this.getInventory().getWeapon().getDamage();
     }
 
     public void setDamage(int damage) {
@@ -106,5 +126,21 @@ public void selectChar() {
 
     public void setCharName(String charName) {
         this.charName = charName;
+    }
+
+    public Scanner getInput() {
+        return input;
+    }
+
+    public void setInput(Scanner input) {
+        this.input = input;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
     }
 }
