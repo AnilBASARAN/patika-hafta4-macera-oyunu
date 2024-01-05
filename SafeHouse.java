@@ -1,5 +1,5 @@
 public  class SafeHouse extends NormalLocation{
-    public static int id;
+
     public SafeHouse(){
 
     }
@@ -9,19 +9,16 @@ public  class SafeHouse extends NormalLocation{
 
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-
-    }
 
     @Override
     public boolean onLocation() {
         System.out.println("Güvenli Evdesiniz.");
         System.out.println("Canınız yenilendi.");
+        if(this.getPlayer().getCharName().equals("Samuray")) getPlayer().setHealth(21);
+        if(this.getPlayer().getCharName().equals("Okçu")) getPlayer().setHealth(18);
+        if(this.getPlayer().getCharName().equals("Samuray")) getPlayer().setHealth(24);
         System.out.println("----------------------------");
+
         return true;
     }
 

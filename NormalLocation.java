@@ -1,7 +1,10 @@
 public class NormalLocation extends Location {
-    public NormalLocation(){
 
+
+    public NormalLocation(){
+        super();
     }
+
     public NormalLocation(Player player, String name) {
         super(player, name);
     }

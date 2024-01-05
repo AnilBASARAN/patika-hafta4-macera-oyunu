@@ -1,7 +1,10 @@
 public class Knight extends GameChar{
     private int id = 1;
-    public Knight() {
 
-        super("Şovalye",8,24,5);
+    public Knight(){
+
+    }
+    public Knight(String name,int damage, int health, int money) {
+        super(name,damage,health,money);
     }
 }

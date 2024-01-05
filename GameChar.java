@@ -3,6 +3,11 @@ public abstract class  GameChar {
     private int damage;
     private int health;
     private int money;
+    private int armor = 0;
+
+    public GameChar(){
+
+    }
 
     public GameChar(String name,int damage, int health, int money) {
         this.name = name;
@@ -16,8 +21,19 @@ public abstract class  GameChar {
         return
                 "Karakter = " + name +
                 " , Hasar = " + damage +
+                        " , Zırh = " + armor +
+
                 ", Sağlık = " + health +
                 ", Para = " + money;
+    }
+
+
+    public int getArmor() {
+        return armor;
+    }
+
+    public void setArmor(int armor) {
+        this.armor = armor;
     }
 
     public String getName() {

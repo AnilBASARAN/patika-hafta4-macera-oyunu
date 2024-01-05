@@ -7,6 +7,7 @@ public class Player {
     private int money;
     private String name;
     private String charName;
+    private int armor = 0;
     private Scanner input = new Scanner(System.in);
 
     private Inventory inventory;
@@ -21,7 +22,7 @@ public class Player {
 
 public void selectChar() {
 
-    GameChar[] charList = {new Samurai(), new Knight(), new Archer()};
+    GameChar[] charList = {new Samurai("Samuray",5,21,400), new Knight("Şovalye",8,24,5), new Archer( "Okçu",7,18,20)};
 
     System.out.println("Karakterler");
     System.out.println("-----------------------------");
@@ -46,13 +47,13 @@ public void selectChar() {
 
     switch (selectChar){
         case 1:
-            initPlayer(new Samurai());
+            initPlayer(new Samurai("Samuray",5,21,400));
             break;
         case 2:
-            initPlayer(new Knight() );
+            initPlayer(new Knight("Şovalye",8,24,5));
             break;
         case 3:
-            initPlayer(new Archer());
+            initPlayer(new Archer( "Okçu",7,18,20));
 
     }
 
@@ -73,6 +74,8 @@ public void selectChar() {
         this.setHealth(gameChar.getHealth());
         this.setMoney(gameChar.getMoney());
         this.setName(gameChar.getName());
+        this.setCharName(gameChar.getName());
+        this.setArmor(gameChar.getArmor());
 
 }
 
@@ -81,15 +84,33 @@ public void selectChar() {
     public void  printPlayerInfo(){
         System.out.println("Oyuncu Güncel Durum: ");
         System.out.println(
-                "Silah = " + this.getInventory().getWeapon().getName()+
-                ", Hasar = " + this.getDamage() +
+                "Silah = " + this.getWeaponName()+
+                        ", Zırh adı = " + this.getArmorName() +
+                        ", Hasar = " + this.getTotalDamage() +
+                        ", Zırh = " + this.getTotalArmor() +
                 ", Sağlık = " + this.getHealth() +
                 ", Para = " + this.getMoney());
 }
 
 
+public int getTotalDamage(){
+    return this.damage + this.getInventory().getWeapon().getDamage();
+}
+
+    public int getTotalArmor(){
+        return this.armor + this.getInventory().getArmors().getArmor();
+    }
+
+    public int getArmor() {
+        return armor;
+    }
+
+    public void setArmor(int armor) {
+        this.armor = armor;
+    }
+
     public int getDamage() {
-        return this.damage + this.getInventory().getWeapon().getDamage();
+        return damage;
     }
 
     public void setDamage(int damage) {
@@ -142,5 +163,12 @@ public void selectChar() {
 
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
+    }
+
+    public String getWeaponName(){
+        return this.getInventory().getWeapon().getName();
+    }
+    public String getArmorName(){
+        return this.getInventory().getArmors().getName();
     }
 }
