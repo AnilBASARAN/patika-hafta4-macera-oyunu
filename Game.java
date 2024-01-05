@@ -81,10 +81,12 @@ public class  Game {
             }
             if(location == null){
                 System.out.println("Çabuk Vazgeçtin Delikanlı");
+
                 return;
             }
             System.out.println(locationList[selectLocation-1].getName()+" Lokasyonunu seçtiniz!");
             System.out.println("------------------**-----------------------------");
+            System.out.println();
 
 
 

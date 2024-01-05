@@ -8,6 +8,7 @@ public class Player {
     private String name;
     private String charName;
     private int armor = 0;
+    private String [] collectedAwards = new String[3];
     private Scanner input = new Scanner(System.in);
 
     private Inventory inventory;
@@ -122,6 +123,9 @@ public int getTotalDamage(){
     }
 
     public void setHealth(int health) {
+        if(health<0){
+            health = 0;
+        }
         this.health = health;
     }
 
