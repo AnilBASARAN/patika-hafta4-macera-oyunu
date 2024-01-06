@@ -7,7 +7,7 @@ public abstract class BattleLoc extends Location {
     private int maxObstacle;
     private boolean isEscape;
 
-    public static String visitedBattleFields ="";
+    public static String visitedBattleFields =":";
 
 
 
@@ -44,7 +44,7 @@ public abstract class BattleLoc extends Location {
             if(this.getObstacle().getName().equals("Zombie")) setVisitedBattleFields("Yemek ");
            //if(this.getObstacle().getName().equals("Yılan")) setVisitedBattleFields("Maden ");
             System.out.println("*******************************");
-            System.out.println("Toplanan Ganimetler "+visitedBattleFields);
+            if(visitedBattleFields.length() != 1) System.out.println("Toplanan Ganimetler "+visitedBattleFields);
             System.out.println("*******************************");
             return true;
         } else if (selectCase.equals("K")) {
@@ -223,8 +223,9 @@ public abstract class BattleLoc extends Location {
         System.out.println("Hasar : " + this.getPlayer().getTotalDamage());
         System.out.println(("Bloklama :  " + this.getPlayer().getInventory().getArmors().getArmor()));
         System.out.println("Para : " + this.getPlayer().getMoney());
-        if(getVisitedBattleFields().split("").length > 0) System.out.println("Toplanan Ganimetler:" + getVisitedBattleFields());
-        System.out.println();
+        System.out.println( "************************************************");
+        if(getVisitedBattleFields().split("").length != 1) System.out.println("Toplanan Ganimetler:" + getVisitedBattleFields());
+        System.out.println( "************************************************");
 
     }
 

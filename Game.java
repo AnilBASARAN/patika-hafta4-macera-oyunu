@@ -5,14 +5,14 @@ public class  Game {
     protected Scanner input = new Scanner(System.in);
 
     public void start(){
-        System.out.println("Macera oyununa Hoşgeldiniz !");
-        System.out.print("Lütfen bir isim giriniz  :  ");
+        System.out.println("Patika'nın Macera oyununa Hoşgeldiniz !");
+        System.out.print("Size hitap edebilmemiz için lütfen bir isim giriniz  :  ");
         String playerName = input.nextLine();
         Player player = new Player(playerName);
         System.out.println(player.getName()+" Hoşgeldin");
-        System.out.println("Olaylar gelişecek Altın ağacından paralar fışkıracak ,  Hoşgeldin");
+        System.out.println("Türlü tehlike ve maceralarla dolu Karanlıklar ormanına giriş yaptın.  ,  Hoşgeldin" + playerName);
 
-        System.out.println("Lütfen  bir karakter seç");
+        System.out.println("Lütfen  bir Savaşçı tipi seç ve maceraya başla");
         player.selectChar();
 
         SafeHouse safehouse = new SafeHouse(player);
@@ -71,7 +71,7 @@ public class  Game {
                }
 
                else if (selectLocation == 1){
-                   if(cave.getVisitedBattleFields().split("").length==14){
+                   if(cave.getVisitedBattleFields().split("").length==15){
                        System.out.println("KAZANDINIZ TEBRİKLER");
                        return;
                        }
@@ -79,7 +79,7 @@ public class  Game {
                }
 
                else if (selectLocation == 2){
-                   if(cave.getVisitedBattleFields().split("").length==14){
+                   if(cave.getVisitedBattleFields().split("").length==15){
                        System.out.println("KAZANDINIZ TEBRİKLER");
                        return;
                    }
@@ -89,7 +89,7 @@ public class  Game {
                else if (selectLocation == 3){
                    if (!cave.getVisitedBattleFields().contains("Yemek")) location = new Cave(player);
                    else {
-                       System.out.println("GİRİŞ YASAK");
+                       System.out.println("Mağarada yapılacak görev kalmadı");
                        continue outerloop;
                    }
                }
@@ -97,14 +97,14 @@ public class  Game {
                else if (selectLocation == 4){
                    if (!cave.getVisitedBattleFields().contains("Odun")) location = new Forest(player);
                    else {
-                       System.out.println("GİRİŞ YASAK");
+                       System.out.println("Ormanda yapılacak görev kalmadı");
                        continue outerloop;
                    }
                }
                else if (selectLocation == 5){
                    if (!cave.getVisitedBattleFields().contains("Su")) location = new River(player);
                    else{
-                       System.out.println("GİRİŞ YASAK");
+                       System.out.println("Nehirde Yapılacak görev kalmadı");
                        continue outerloop;
                    }
 
