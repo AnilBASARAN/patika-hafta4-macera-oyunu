@@ -185,10 +185,14 @@ public abstract class BattleLoc extends Location {
                         if(obstacleDamage < 0 ) obstacleDamage = 0;
                         this.getPlayer().setHealth(this.getPlayer().getHealth()-obstacleDamage);
                         afterHit();
+                    if(this.getPlayer().getHealth() > 0 ){
+                        System.out.println("Siz vurdunuz");
+                        this.getObstacle().setHealth(this.getObstacle().getHealth()-this.getPlayer().getTotalDamage());
+                        afterHit();
+                    }else {
+                        return false;
+                    }
 
-                    System.out.println("Siz vurdunuz");
-                    this.getObstacle().setHealth(this.getObstacle().getHealth()-this.getPlayer().getTotalDamage());
-                    afterHit();
 
                     }
                 }

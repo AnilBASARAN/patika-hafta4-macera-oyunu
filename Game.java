@@ -66,8 +66,11 @@ public class  Game {
                } while (!isSelectCharBound);
 
                if(selectLocation == 0){
-                   location = null;
-                   System.out.println("Çabuk Vazgeçtin Delikanlı");
+
+                   System.out.println("Oyundan çıkış yapılıyor....");
+                   System.out.println(" İyi günler "+ playerName +", yine bekleriz. ");
+
+                   return;
                }
 
                else if (selectLocation == 1){
@@ -111,12 +114,13 @@ public class  Game {
                }
 
 
-               System.out.println(locationList[selectLocation - 1].getName() + " Lokasyonunu seçtiniz!");
+               if(selectLocation != 0) System.out.println(locationList[selectLocation - 1].getName() + " Lokasyonunu seçtiniz!");
+
                System.out.println("------------------**-----------------------------");
                System.out.println();
 
 
-           }while (location.onLocation());
+           }while ( location != null && location.onLocation() );
 
        }
 
