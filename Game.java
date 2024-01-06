@@ -112,6 +112,10 @@ public class  Game {
                    }
 
                }
+               else if (selectLocation == 6){
+                   location = new Mine(player);
+
+               }
 
 
                if(selectLocation != 0) System.out.println(locationList[selectLocation - 1].getName() + " Lokasyonunu seçtiniz!");
