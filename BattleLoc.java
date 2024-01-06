@@ -43,9 +43,9 @@ public abstract class BattleLoc extends Location {
             if(this.getObstacle().getName().equals("Ayı")) setVisitedBattleFields("Su ");
             if(this.getObstacle().getName().equals("Zombie")) setVisitedBattleFields("Yemek ");
            //if(this.getObstacle().getName().equals("Yılan")) setVisitedBattleFields("Maden ");
-
+            System.out.println("*******************************");
             System.out.println("Toplanan Ganimetler "+visitedBattleFields);
-            System.out.println(visitedBattleFields.split("").length+" Bana bu sayı lazım");
+            System.out.println("*******************************");
             return true;
         } else if (selectCase.equals("K")) {
             System.out.println("Erkekliğin 10 da 9 u kaçmaktır");
@@ -223,7 +223,7 @@ public abstract class BattleLoc extends Location {
         System.out.println("Hasar : " + this.getPlayer().getTotalDamage());
         System.out.println(("Bloklama :  " + this.getPlayer().getInventory().getArmors().getArmor()));
         System.out.println("Para : " + this.getPlayer().getMoney());
-        System.out.println("Gidilen yerler :" + getVisitedBattleFields());
+        if(getVisitedBattleFields().split("").length > 0) System.out.println("Toplanan Ganimetler:" + getVisitedBattleFields());
         System.out.println();
 
     }

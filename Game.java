@@ -7,8 +7,8 @@ public class  Game {
     public void start(){
         System.out.println("Macera oyununa Hoşgeldiniz !");
         System.out.print("Lütfen bir isim giriniz  :  ");
-        //String playerName = input.nextLine();
-        Player player = new Player("Atakan Uzun");
+        String playerName = input.nextLine();
+        Player player = new Player(playerName);
         System.out.println(player.getName()+" Hoşgeldin");
         System.out.println("Olaylar gelişecek Altın ağacından paralar fışkıracak ,  Hoşgeldin");
 
