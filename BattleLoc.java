@@ -4,9 +4,13 @@ public abstract class BattleLoc extends Location {
     private Obstacle obstacle;
     private String award;
     private int maxObstacle;
-    public boolean isAwardTaken = false;
-
     private boolean isEscape;
+
+    public static String visitedBattleFields ="";
+
+
+
+
 
 
     public BattleLoc() {
@@ -18,6 +22,8 @@ public abstract class BattleLoc extends Location {
         this.award = award;
         this.maxObstacle = maxObstacle;
     }
+
+
 
     @Override
 
@@ -31,6 +37,12 @@ public abstract class BattleLoc extends Location {
         selectCase = selectCase.toUpperCase();
         if (selectCase.equals("S") && combat(obsNumber) && (!isEscape)) {
             System.out.println(this.getName() + "'deki tüm düşmanları yendiniz !");
+            if(this.getObstacle().getName().equals("Vampir")) setVisitedBattleFields("Odun ");
+
+            if(this.getObstacle().getName().equals("Ayı")) setVisitedBattleFields("Su ");
+            if(this.getObstacle().getName().equals("Zombie")) setVisitedBattleFields("Yemek ");
+            System.out.println("Toplanan Ganimetler "+visitedBattleFields);
+            System.out.println(visitedBattleFields.split("").length+" Bana bu sayı lazım");
             return true;
         } else if (selectCase.equals("K")) {
             System.out.println("Erkekliğin 10 da 9 u kaçmaktır");
@@ -109,6 +121,7 @@ public abstract class BattleLoc extends Location {
         System.out.println("Hasar : " + this.getPlayer().getTotalDamage());
         System.out.println(("Bloklama :  " + this.getPlayer().getInventory().getArmors().getArmor()));
         System.out.println("Para : " + this.getPlayer().getMoney());
+        System.out.println("Gidilen yerler :" + getVisitedBattleFields());
         System.out.println();
 
     }
@@ -121,6 +134,15 @@ public abstract class BattleLoc extends Location {
         System.out.println("Ödül : " + this.getObstacle().getAward());
         System.out.println();
 
+    }
+
+    public String getVisitedBattleFields() {
+        return visitedBattleFields;
+    }
+
+    public  void setVisitedBattleFields(String str) {
+        if(!getVisitedBattleFields().contains(str))
+        this.visitedBattleFields = visitedBattleFields + str ;
     }
 
     public int randomObstacleNumber() {
@@ -153,13 +175,6 @@ public abstract class BattleLoc extends Location {
         this.award = award;
     }
 
-    public boolean isAwardTaken() {
-        return isAwardTaken;
-    }
-
-    public void setAwardTaken(boolean awardTaken) {
-        isAwardTaken = awardTaken;
-    }
 
     public boolean isEscape() {
         return isEscape;

@@ -3,6 +3,7 @@ public class River extends BattleLoc{
 
 
 
+
     public void setResident(String resident) {
         this.resident = resident;
     }

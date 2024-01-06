@@ -7,7 +7,6 @@ public abstract class Location {
     private int id;
 
 
-
     public static Scanner input = new Scanner(System.in);
 
     public Location(){
