@@ -41,6 +41,8 @@ public abstract class BattleLoc extends Location {
 
             if(this.getObstacle().getName().equals("Ayı")) setVisitedBattleFields("Su ");
             if(this.getObstacle().getName().equals("Zombie")) setVisitedBattleFields("Yemek ");
+           
+
             System.out.println("Toplanan Ganimetler "+visitedBattleFields);
             System.out.println(visitedBattleFields.split("").length+" Bana bu sayı lazım");
             return true;
