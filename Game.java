@@ -10,7 +10,7 @@ public class  Game {
         String playerName = input.nextLine();
         Player player = new Player(playerName);
         System.out.println(player.getName()+" Hoşgeldin");
-        System.out.println("Türlü tehlike ve maceralarla dolu Karanlıklar ormanına giriş yaptın.  ,  Hoşgeldin" + playerName);
+        System.out.println("Türlü tehlike ve maceralarla dolu Karanlıklar ormanına giriş yaptın!    Bol şans " + playerName);
 
         System.out.println("Lütfen  bir Savaşçı tipi seç ve maceraya başla");
         player.selectChar();
@@ -37,7 +37,7 @@ public class  Game {
                String[] locationRewards = {"Can doluyor", "Eşya satın alabilirsin", "Yemek", "Odun", "Su","Maden"};
                player.printPlayerInfo();
                System.out.println("Lokasyonlar");
-               System.out.println("----------------------------------------------");
+               System.out.println("--------------------------------------------------------------------");
                System.out.println("ID: 0 Çıkış ");
 
                int count = 0;

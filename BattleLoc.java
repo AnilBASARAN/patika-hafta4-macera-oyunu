@@ -216,7 +216,7 @@ public abstract class BattleLoc extends Location {
     }
     public void playerStats() {
         System.out.println("Oyuncu Değerleri");
-        System.out.println("-----------------------------");
+        System.out.println("-----------------------------------------------");
         System.out.println("Sağlık : " + this.getPlayer().getHealth());
         System.out.println("Silah : " + this.getPlayer().getWeaponName());
         System.out.println("Zırh : " + this.getPlayer().getInventory().getArmors().getName());
@@ -231,7 +231,7 @@ public abstract class BattleLoc extends Location {
 
     public void obstacleStats(int i) {
         System.out.println(i+". "+this.getObstacle().getName() + "  Değerleri");
-        System.out.println("-----------------------------");
+        System.out.println("--------------------------------------------------");
         System.out.println("Sağlık : " + this.getObstacle().getHealth());
         System.out.println("Hasar : " + this.getObstacle().getDamage());
         System.out.println("Ödül : " + this.getObstacle().getAward());

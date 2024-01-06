@@ -26,7 +26,7 @@ public void selectChar() {
     GameChar[] charList = {new Samurai("Samuray",5,21,400), new Knight("Şovalye",8,24,5), new Archer( "Okçu",7,18,20)};
 
     System.out.println("Karakterler");
-    System.out.println("-----------------------------");
+    System.out.println("---**--------------------------------------------------");
     int count = 0;
     for (GameChar gameChar : charList) {
         if (gameChar.getName().split("").length <= 4)
@@ -37,7 +37,7 @@ public void selectChar() {
 
     int selectChar;
     boolean isSelectCharBound;
-    System.out.println("-----------------------------------------");
+    System.out.println("---**--------------------------------------------------");
     System.out.print("Lütfen bir karakter giriniz:  ");
     do {
 
@@ -61,7 +61,7 @@ public void selectChar() {
     System.out.println(charList[selectChar-1].getName()+" Karakterini seçtiniz!");
 
     System.out.println(charList[selectChar-1]);
-    System.out.println("-----------------------------------------");
+    System.out.println("---------------------------------------------***-----------");
 
 }
 
