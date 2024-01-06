@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.util.Random;
 
 public abstract class BattleLoc extends Location {
@@ -131,6 +132,19 @@ public abstract class BattleLoc extends Location {
         }
     }
 
+    public String whoseTurn(){
+
+        int chance = (int) (Math.random()*100);
+
+        if(chance > 50){
+            System.out.println("Şans "+getPlayer().getName()+" dan yana, "+ getPlayer().getName() +" Vuracak!");
+        }else {
+            System.out.println("Şans "+getObstacle().getName()+" dan yana, "+ getObstacle().getName()+ " Vuracak!");
+        }
+
+        return (chance > 50)? "Şans sizden yana" : "Şans yaratıktan yana";
+    }
+
 
 
     public boolean combat(int obsNumber) {
@@ -143,7 +157,15 @@ public abstract class BattleLoc extends Location {
 
                 System.out.print("<V>ur veya <K>aç  :   ");
                 String selectCombat = input.nextLine().toUpperCase();
-                if(selectCombat.equals("V")){
+
+                if (selectCombat.equals("K")) {
+                    setEscape(true);
+                    System.out.println("Erkekliğin 10 da 9 u kaçmaktır");
+                    return true;
+                }
+
+
+                else if(selectCombat.equals("V") && Objects.equals(whoseTurn(), "Şans sizden yana")){
                     System.out.println("Siz vurdunuz");
                     this.getObstacle().setHealth(this.getObstacle().getHealth()-this.getPlayer().getTotalDamage());
                     afterHit();
@@ -154,15 +176,21 @@ public abstract class BattleLoc extends Location {
 
                         this.getPlayer().setHealth(this.getPlayer().getHealth()-obstacleDamage);
                         afterHit();
-                    }else{
+                    }
+                }
 
+                else {
+                        System.out.println("Canavar size vurdu !");
+                        int obstacleDamage = this.getObstacle().getDamage()-this.getPlayer().getInventory().getArmors().getArmor();
+                        if(obstacleDamage < 0 ) obstacleDamage = 0;
+                        this.getPlayer().setHealth(this.getPlayer().getHealth()-obstacleDamage);
+                        afterHit();
 
+                    System.out.println("Siz vurdunuz");
+                    this.getObstacle().setHealth(this.getObstacle().getHealth()-this.getPlayer().getTotalDamage());
+                    afterHit();
 
                     }
-                } else if (selectCombat.equals("K")) {
-                    setEscape(true);
-                    System.out.println("Erkekliğin 10 da 9 u kaçmaktır");
-                    return true;
                 }
 
                 if(this.getObstacle().getHealth() < this.getPlayer().getHealth()){
@@ -173,7 +201,7 @@ public abstract class BattleLoc extends Location {
                     break;
                 }
             }
-        }
+
         if(this.getPlayer().getHealth() <= 0){
             System.out.println("Öldünüz  !");
             return false;

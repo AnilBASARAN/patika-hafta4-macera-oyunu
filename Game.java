@@ -32,7 +32,7 @@ public class  Game {
 
            do {
 
-
+        //son karar
                String[] locationListObstacles = {"Güvenli ev", "ToolStore", "Zombi", "Vampir", "Ayı","Yılan"};
                String[] locationRewards = {"Can doluyor", "Eşya satın alabilirsin", "Yemek", "Odun", "Su","Maden"};
                player.printPlayerInfo();
