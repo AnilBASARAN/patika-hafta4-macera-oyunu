@@ -195,7 +195,6 @@ public abstract class BattleLoc extends Location {
 
 
                     }
-                }
 
                 if(this.getObstacle().getHealth() < this.getPlayer().getHealth()){
                     System.out.println(i+ ". Düşmanı yendiniz ! ");
@@ -204,6 +203,9 @@ public abstract class BattleLoc extends Location {
                     System.out.println("Güncel paranız : "+this.getPlayer().getMoney());
                     break;
                 }
+                }
+
+
             }
 
         if(this.getPlayer().getHealth() <= 0){

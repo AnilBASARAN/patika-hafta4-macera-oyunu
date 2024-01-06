@@ -16,7 +16,7 @@ public  class SafeHouse extends NormalLocation{
         System.out.println("Canınız yenilendi.");
         if(this.getPlayer().getCharName().equals("Samuray")) getPlayer().setHealth(21);
         if(this.getPlayer().getCharName().equals("Okçu")) getPlayer().setHealth(18);
-        if(this.getPlayer().getCharName().equals("Samuray")) getPlayer().setHealth(24);
+        if(this.getPlayer().getCharName().equals("Şovalye")) getPlayer().setHealth(24);
         System.out.println("----------------------------");
 
         return true;
