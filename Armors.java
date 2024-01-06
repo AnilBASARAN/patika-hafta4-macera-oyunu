@@ -23,6 +23,15 @@ public class Armors {
         return Armors.armors()[id-1];
     }
 
+    public static Armors getArmorObjById(int id){
+        for(Armors armor : Armors.armors()){
+            if(armor.getId() == id){
+                return armor;
+            }
+        }
+        return null;
+    }
+
     public String getName() {
         return name;
     }

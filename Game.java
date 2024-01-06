@@ -21,10 +21,11 @@ public class  Game {
 
         Forest forest = new Forest(player);
         River river = new River(player);
+        Mine mine = new Mine(player);
 
 
         Location location = null;
-        Location[] locationList = {safehouse,toolStore,cave,forest,river};
+        Location[] locationList = {safehouse,toolStore,cave,forest,river,mine};
         outerloop:
 
        while (true){
@@ -32,8 +33,8 @@ public class  Game {
            do {
 
 
-               String[] locationListObstacles = {"Güvenli ev", "ToolStore", "Zombi", "Vampir", "Ayı"};
-               String[] locationRewards = {"Can doluyor", "Eşya satın alabilirsin", "Yemek", "Odun", "Su"};
+               String[] locationListObstacles = {"Güvenli ev", "ToolStore", "Zombi", "Vampir", "Ayı","Yılan"};
+               String[] locationRewards = {"Can doluyor", "Eşya satın alabilirsin", "Yemek", "Odun", "Su","Maden"};
                player.printPlayerInfo();
                System.out.println("Lokasyonlar");
                System.out.println("----------------------------------------------");
@@ -44,7 +45,7 @@ public class  Game {
                    System.out.println();
                    System.out.println("ID: " + (++count) + " Lokasyon : " + locations.getName() + "   " + "\t");
 
-                   if (count == 3 || count == 4 || count == 5)
+                   if (count == 3 || count == 4 || count == 5 || count == 6)
                        System.out.println("(Ödül :" + locationRewards[count - 1].toString() + ")  (Dikkatli ol ! " + locationList[count - 1].getName() + "'dan " + (locationListObstacles[count - 1].toString()) + " çıkabilir)");
 
                }

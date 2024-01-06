@@ -41,7 +41,7 @@ public abstract class BattleLoc extends Location {
 
             if(this.getObstacle().getName().equals("Ayı")) setVisitedBattleFields("Su ");
             if(this.getObstacle().getName().equals("Zombie")) setVisitedBattleFields("Yemek ");
-           
+           //if(this.getObstacle().getName().equals("Yılan")) setVisitedBattleFields("Maden ");
 
             System.out.println("Toplanan Ganimetler "+visitedBattleFields);
             System.out.println(visitedBattleFields.split("").length+" Bana bu sayı lazım");
@@ -57,6 +57,78 @@ public abstract class BattleLoc extends Location {
         }
 
         return true;
+    }
+
+    // ödüllerin şansa göre gelme durumu
+    public void mineAvard(){
+        Random r = new Random();
+        int awardChance = r.nextInt(100)+1;
+        if(awardChance <= 15){
+            weaponAwardChance();
+        }
+        else if(awardChance <= 30){
+            armorAwardChance();
+        }
+        else if(awardChance <=55) {
+            moneyAwardChance();
+        }else{
+            System.out.println("Maalesef Bir Şey Kazanamadınız");
+        }
+    }
+    // Zırhlara özel metot
+    public void armorAwardChance(){
+        Random r = new Random();
+        int awardChance = r.nextInt(100)+1;
+        if(awardChance <= 20){
+            getPlayer().getInventory().setArmors(Armors.getArmorObjById(3));
+            System.out.println("Ağır Zırh Kazandınız");
+        }
+        else if(awardChance <=50){
+            getPlayer().getInventory().setArmors(Armors.getArmorObjById(2));
+            System.out.println("Orta Zırh kazandınız");
+        }
+        else{
+            getPlayer().getInventory().setArmors(Armors.getArmorObjById(1));
+            System.out.println("Hafif Zırh Kazandınız");
+        }
+    }
+    // Silahlara özel metot
+    public void weaponAwardChance(){
+        Random r = new Random();
+        int awardChance = r.nextInt(100)+1;
+        if(awardChance <= 20){
+            getPlayer().getInventory().setWeapon(Weapons.getWeaponObjById(3));
+            System.out.println("Tüfek Kazandınız");
+        }
+        else if(awardChance <=50){
+            getPlayer().getInventory().setWeapon(Weapons.getWeaponObjById(2));
+            System.out.println("Kılıç Kazanadınız");
+        }
+        else{
+            getPlayer().getInventory().setWeapon(Weapons.getWeaponObjById(1));
+            System.out.println("Tabanca Kazandınız");
+        }
+    }
+    // para kazanmaya özel metot
+    public void moneyAwardChance(){
+        Random z = new Random();
+        int moneyChance = z.nextInt(100)+1;
+
+        if(moneyChance <= 20){
+            getPlayer().setMoney(getPlayer().getMoney() + 10);
+            System.out.println("10 para kazandınız.");
+        }
+
+        else if(moneyChance <=50){
+            getPlayer().setMoney(getPlayer().getMoney() + 5);
+            System.out.println("5 para kazandınız.");
+
+        }
+        else{
+            getPlayer().setMoney(getPlayer().getMoney() + 1);
+            System.out.println("1 para kazandınız.");
+
+        }
     }
 
 

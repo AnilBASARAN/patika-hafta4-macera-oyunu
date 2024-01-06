@@ -23,6 +23,15 @@ public class Weapons {
         return Weapons.weapons()[id-1];
     }
 
+    public static Weapons getWeaponObjById(int id){
+        for(Weapons weapon : Weapons.weapons()){
+            if(weapon.getId() == id){
+                return weapon;
+            }
+        }
+        return null;
+    }
+
     public String getName() {
         return name;
     }
