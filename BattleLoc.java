@@ -33,9 +33,19 @@ public abstract class BattleLoc extends Location {
         int obsNumber = this.randomObstacleNumber();
         System.out.println("Şu an buradasınız :  " + this.getName());
         System.out.println("Dikkatli ol! Burada " + obsNumber + " tane " + this.getObstacle().getName() + " yaşıyor  !");
+
+        String selectCase;
+        boolean isSelectCaseValid;
         System.out.print(" <S>avaş veya <K>aç :  ");
-        String selectCase = input.nextLine();
-        selectCase = selectCase.toUpperCase();
+
+        do {
+            selectCase = input.nextLine();
+            selectCase = selectCase.toUpperCase();
+            isSelectCaseValid = (Objects.equals(selectCase, "K") || (Objects.equals(selectCase, "S")));
+            if(!isSelectCaseValid) System.out.println("Lütfen S veya K tuşlarından birine basınız.");
+        }while(!isSelectCaseValid );
+
+
         if (selectCase.equals("S") && combat(obsNumber) && (!isEscape)) {
             System.out.println(this.getName() + "'deki tüm düşmanları yendiniz !");
             if(this.getObstacle().getName().equals("Vampir")) setVisitedBattleFields("Odun ");
@@ -51,6 +61,7 @@ public abstract class BattleLoc extends Location {
             System.out.println("Erkekliğin 10 da 9 u kaçmaktır");
             return true;
         }
+
 
         if(this.getPlayer().getHealth() <= 0){
             System.out.println("Game OVER  !");
@@ -155,8 +166,27 @@ public abstract class BattleLoc extends Location {
             obstacleStats(i);
             while (this.getPlayer().getHealth()>0 && this.getObstacle().getHealth()>0){
 
+                /*String selectCase;
+                boolean isSelectCaseValid;
+                System.out.print(" <S>avaş veya <K>aç :  ");
+
+                do {
+                    selectCase = input.nextLine();
+                    selectCase = selectCase.toUpperCase();
+                    isSelectCaseValid = (Objects.equals(selectCase, "K") || (Objects.equals(selectCase, "S")));
+                    if(!isSelectCaseValid) System.out.println("Lütfen S veya K tuşlarından birine basınız.");
+                }while(!isSelectCaseValid );*/
+
+                String selectCombat;
+                boolean isSelectCombatValid;
                 System.out.print("<V>ur veya <K>aç  :   ");
-                String selectCombat = input.nextLine().toUpperCase();
+
+                do {
+                    selectCombat = input.nextLine();
+                    selectCombat = selectCombat.toUpperCase();
+                    isSelectCombatValid = (Objects.equals(selectCombat, "V") || (Objects.equals(selectCombat, "S")));
+                    if(!isSelectCombatValid) System.out.println("Lütfen V veya K tuşlarından birine basınız.");
+                }while (!isSelectCombatValid);
 
                 if (selectCombat.equals("K")) {
                     setEscape(true);
