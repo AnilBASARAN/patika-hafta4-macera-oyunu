@@ -6,7 +6,7 @@ public class  Game {
 
     public void start(){
         System.out.println("Patika'nın Macera oyununa Hoşgeldiniz !");
-        System.out.print("Size hitap edebilmemiz için lütfen bir isim giriniz  :  ");
+        System.out.print("lütfen bir isim giriniz  :  ");
         String playerName = input.nextLine();
         Player player = new Player(playerName);
         System.out.println(player.getName()+" Hoşgeldin");
