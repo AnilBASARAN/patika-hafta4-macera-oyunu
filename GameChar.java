@@ -5,6 +5,8 @@ public abstract class  GameChar {
     private int money;
     private int armor = 0;
 
+    private int defaultHealth;
+
     public GameChar(){
 
     }
@@ -14,6 +16,7 @@ public abstract class  GameChar {
         this.damage = damage;
         this.health = health;
         this.money = money;
+        this.defaultHealth = health;
     }
 
     @Override
@@ -27,6 +30,13 @@ public abstract class  GameChar {
                 ", Para = " + money;
     }
 
+    public int getDefaultHealth() {
+        return defaultHealth;
+    }
+
+    public void setDefaultHealth(int defaultHealth) {
+        this.defaultHealth = defaultHealth;
+    }
 
     public int getArmor() {
         return armor;

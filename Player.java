@@ -4,6 +4,8 @@ import java.util.Arrays;
 public class Player {
     private int damage;
     private int health;
+
+    private  int defaultHealth;
     private int money;
     private String name;
     private String charName;
@@ -48,20 +50,6 @@ public void selectChar() {
         else
             System.out.println("ID: "+(++count)+" Karakter:" + gameChar.getName() + "\t" + "Hasar :" + gameChar.getDamage() + "\t" + "Sağlık: " + gameChar.getHealth() + "\t" + "Para: " + gameChar.getMoney());
     }
-
-
-
-
-    /*String selectCase;
-                boolean isSelectCaseValid;
-                System.out.print(" <S>avaş veya <K>aç :  ");
-
-                do {
-                    selectCase = input.nextLine();
-                    selectCase = selectCase.toUpperCase();
-                    isSelectCaseValid = (Objects.equals(selectCase, "K") || (Objects.equals(selectCase, "S")));
-                    if(!isSelectCaseValid) System.out.println("Lütfen S veya K tuşlarından birine basınız.");
-                }while(!isSelectCaseValid );*/
 
 
 
@@ -121,6 +109,7 @@ public void selectChar() {
         this.setName(gameChar.getName());
         this.setCharName(gameChar.getName());
         this.setArmor(gameChar.getArmor());
+        this.setDefaultHealth(gameChar.getHealth());
 
 }
 
@@ -148,6 +137,14 @@ public int getTotalDamage(){
 
     public int getArmor() {
         return armor;
+    }
+
+    public int getDefaultHealth() {
+        return defaultHealth;
+    }
+
+    public void setDefaultHealth(int defaultHealth) {
+        this.defaultHealth = defaultHealth;
     }
 
     public void setArmor(int armor) {

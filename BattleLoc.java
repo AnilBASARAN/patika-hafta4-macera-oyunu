@@ -175,7 +175,7 @@ public abstract class BattleLoc extends Location {
                 do {
                     selectCombat = input.nextLine();
                     selectCombat = selectCombat.toUpperCase();
-                    isSelectCombatValid = (Objects.equals(selectCombat, "V") || (Objects.equals(selectCombat, "S")));
+                    isSelectCombatValid = (Objects.equals(selectCombat, "V") || (Objects.equals(selectCombat, "K")));
                     if(!isSelectCombatValid) System.out.println("Lütfen V veya K tuşlarından birine basınız.");
                 }while (!isSelectCombatValid);
 

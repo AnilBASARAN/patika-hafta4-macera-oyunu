@@ -1,5 +1,6 @@
 public  class SafeHouse extends NormalLocation{
 
+
     public SafeHouse(){
 
     }
@@ -13,10 +14,11 @@ public  class SafeHouse extends NormalLocation{
     @Override
     public boolean onLocation() {
         System.out.println("Güvenli Evdesiniz.");
-        System.out.println("Canınız yenilendi.");
-        if(this.getPlayer().getCharName().equals("Samuray")) getPlayer().setHealth(21);
-        if(this.getPlayer().getCharName().equals("Okçu")) getPlayer().setHealth(18);
-        if(this.getPlayer().getCharName().equals("Şovalye")) getPlayer().setHealth(24);
+        System.out.println("Canınız doluyor...");
+        System.out.println("Canınız" + this.getPlayer().getHealth()+"'den "+this.getPlayer().getDefaultHealth()+"'a çıktı");
+
+        if(this.getPlayer().getHealth() != this.getPlayer().getDefaultHealth() ) getPlayer().setHealth(this.getPlayer().getDefaultHealth());
+
         System.out.println("----------------------------");
 
         return true;

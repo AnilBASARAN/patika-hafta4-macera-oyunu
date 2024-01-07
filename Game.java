@@ -28,7 +28,7 @@ public class  Game {
         Location[] locationList = {safehouse,toolStore,cave,forest,river,mine};
         outerloop:
 
-       while (true){
+       while (player.getHealth() > 0){
 
            do {
 
@@ -52,18 +52,28 @@ public class  Game {
 
                int selectLocation;
                boolean isSelectCharBound;
+               String selectCharString;
+               boolean isselectCharNumber;
 
 
                do {
                    System.out.println("--------------------------------------------**---");
                    System.out.print("Lütfen bir lokasyon giriniz:  ");
 
-                   selectLocation = input.nextInt();
+                   do {
+
+                       selectCharString = input.nextLine();
+                       isselectCharNumber = Player.isNumber(selectCharString);
+                       if(!isselectCharNumber) System.out.println("Lütfen bir sayı giriniz");
+                   }while (!isselectCharNumber);
+
+
+                   selectLocation = Integer.parseInt(selectCharString);
                    isSelectCharBound = (selectLocation >= 0 && selectLocation <= locationList.length);
                    if (!isSelectCharBound)
                        System.out.println("Lütfen 0 ile " + (locationList.length) + " arasında bir sayı giriniz");
 
-               } while (!isSelectCharBound);
+               } while (!isSelectCharBound && player.getHealth() >= 0);
 
                if(selectLocation == 0){
 
@@ -83,13 +93,17 @@ public class  Game {
 
                else if (selectLocation == 2){
                    if(cave.getVisitedBattleFields().split("").length==15){
-                       System.out.println("KAZANDINIZ TEBRİKLER");
-                       return;
+                       System.out.println("Tüm görevleri tamamladın, Oyunu bitirmek için Güvenli eve git. ");
+                       continue outerloop;
                    }
                    location = new ToolStore(player);
                }
 
                else if (selectLocation == 3){
+                   if(cave.getVisitedBattleFields().split("").length==15){
+                       System.out.println("Tüm görevleri tamamladın, Oyunu bitirmek için Güvenli eve git. ");
+                       continue outerloop;
+                   }
                    if (!cave.getVisitedBattleFields().contains("Yemek")) location = new Cave(player);
                    else {
                        System.out.println("Mağarada yapılacak görev kalmadı");
@@ -98,6 +112,10 @@ public class  Game {
                }
 
                else if (selectLocation == 4){
+                   if(cave.getVisitedBattleFields().split("").length==15){
+                       System.out.println("Tüm görevleri tamamladın, Oyunu bitirmek için Güvenli eve git. ");
+                       continue outerloop;
+                   }
                    if (!cave.getVisitedBattleFields().contains("Odun")) location = new Forest(player);
                    else {
                        System.out.println("Ormanda yapılacak görev kalmadı");
@@ -105,6 +123,10 @@ public class  Game {
                    }
                }
                else if (selectLocation == 5){
+                   if(cave.getVisitedBattleFields().split("").length==15){
+                       System.out.println("Tüm görevleri tamamladın, Oyunu bitirmek için Güvenli eve git. ");
+                       continue outerloop;
+                   }
                    if (!cave.getVisitedBattleFields().contains("Su")) location = new River(player);
                    else{
                        System.out.println("Nehirde Yapılacak görev kalmadı");
@@ -113,6 +135,10 @@ public class  Game {
 
                }
                else if (selectLocation == 6){
+                   if(cave.getVisitedBattleFields().split("").length==15){
+                       System.out.println("Tüm görevleri tamamladın, Oyunu bitirmek için Güvenli eve git. ");
+                       continue outerloop;
+                   }
                    location = new Mine(player);
 
                }
@@ -124,7 +150,7 @@ public class  Game {
                System.out.println();
 
 
-           }while ( location != null && location.onLocation() );
+           }while (location.onLocation() );
 
        }
 
