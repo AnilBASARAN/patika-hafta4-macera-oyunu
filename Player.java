@@ -21,6 +21,20 @@ public class Player {
 
 
 
+        public static <T> boolean isNumber(T number) {
+            String[] numbersArray = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"};
+            String[] numberParts = String.valueOf(number).split("");
+
+            for (String i : numberParts) {
+                if (!Arrays.asList(numbersArray).contains(i)) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+
 public void selectChar() {
 
     GameChar[] charList = {new Samurai("Samuray",5,21,400), new Knight("Şovalye",8,24,5), new Archer( "Okçu",7,18,20)};
@@ -35,16 +49,46 @@ public void selectChar() {
             System.out.println("ID: "+(++count)+" Karakter:" + gameChar.getName() + "\t" + "Hasar :" + gameChar.getDamage() + "\t" + "Sağlık: " + gameChar.getHealth() + "\t" + "Para: " + gameChar.getMoney());
     }
 
-    int selectChar;
-    boolean isSelectCharBound;
+
+
+
+    /*String selectCase;
+                boolean isSelectCaseValid;
+                System.out.print(" <S>avaş veya <K>aç :  ");
+
+                do {
+                    selectCase = input.nextLine();
+                    selectCase = selectCase.toUpperCase();
+                    isSelectCaseValid = (Objects.equals(selectCase, "K") || (Objects.equals(selectCase, "S")));
+                    if(!isSelectCaseValid) System.out.println("Lütfen S veya K tuşlarından birine basınız.");
+                }while(!isSelectCaseValid );*/
+
+
+
+            boolean isselectCharValid;
+            String selectCharString;
+            int selectChar;
+            boolean isselectCharNumber;
+
+
+
     System.out.println("---**--------------------------------------------------");
     System.out.print("Lütfen bir karakter giriniz:  ");
-    do {
 
-        selectChar = input.nextInt();
-        isSelectCharBound = (selectChar >= 1 && selectChar <= charList.length );
-        if(!isSelectCharBound) System.out.println("Lütfen 1 ile "+(charList.length)+" arasında bir sayı giriniz");
-    } while (!isSelectCharBound);
+    do {
+            do {
+
+                selectCharString = input.nextLine();
+                isselectCharNumber = isNumber(selectCharString);
+                if(!isselectCharNumber) System.out.println("Lütfen bir sayı giriniz");
+            }while (!isselectCharNumber);
+
+
+        selectChar = Integer.parseInt(selectCharString);
+        isselectCharValid = ((selectChar == 1) || (selectChar ==  2) || (selectChar == 3 ));
+
+        if(!isselectCharValid) System.out.println("Lütfen 1 ile "+(charList.length)+" arasında bir sayı giriniz");
+    } while (!isselectCharValid);
 
     switch (selectChar){
         case 1:

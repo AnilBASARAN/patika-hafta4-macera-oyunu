@@ -166,16 +166,7 @@ public abstract class BattleLoc extends Location {
             obstacleStats(i);
             while (this.getPlayer().getHealth()>0 && this.getObstacle().getHealth()>0){
 
-                /*String selectCase;
-                boolean isSelectCaseValid;
-                System.out.print(" <S>avaş veya <K>aç :  ");
 
-                do {
-                    selectCase = input.nextLine();
-                    selectCase = selectCase.toUpperCase();
-                    isSelectCaseValid = (Objects.equals(selectCase, "K") || (Objects.equals(selectCase, "S")));
-                    if(!isSelectCaseValid) System.out.println("Lütfen S veya K tuşlarından birine basınız.");
-                }while(!isSelectCaseValid );*/
 
                 String selectCombat;
                 boolean isSelectCombatValid;
