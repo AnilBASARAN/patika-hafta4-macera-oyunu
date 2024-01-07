@@ -39,7 +39,7 @@ public class Player {
 
 public void selectChar() {
 
-    GameChar[] charList = {new Samurai("Samuray",5,21,400), new Knight("Şovalye",8,24,5), new Archer( "Okçu",7,18,20)};
+    GameChar[] charList = {new Samurai("Samuray",5,21,15), new Knight("Şovalye",8,24,5), new Archer( "Okçu",7,18,20)};
 
     System.out.println("Karakterler");
     System.out.println("---**--------------------------------------------------");

@@ -15,7 +15,7 @@ public  class SafeHouse extends NormalLocation{
     public boolean onLocation() {
         System.out.println("Güvenli Evdesiniz.");
         System.out.println("Canınız doluyor...");
-        System.out.println("Canınız" + this.getPlayer().getHealth()+"'den "+this.getPlayer().getDefaultHealth()+"'a çıktı");
+        System.out.println("Canınız " + this.getPlayer().getHealth()+" iken "+this.getPlayer().getDefaultHealth()+" oldu.");
 
         if(this.getPlayer().getHealth() != this.getPlayer().getDefaultHealth() ) getPlayer().setHealth(this.getPlayer().getDefaultHealth());
 
