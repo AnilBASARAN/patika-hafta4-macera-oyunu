@@ -5,7 +5,10 @@ public class  Game {
     protected Scanner input = new Scanner(System.in);
 
     public void start(){
-        System.out.println("Patika'nın Macera oyununa Hoşgeldiniz !");
+        System.out.println("Patika'nın Macera Adasına Hoşgeldiniz !");
+        System.out.println("Bu adada sizi türlü tehlikeler bekliyor,  !");
+        System.out.println("Okçu , Şovalye veya Samuray olarak maceradan maceraya koşacaksınız !");
+        System.out.println("Orman, Nehir ve Mağaradaki görevleri tamamlayıp Ganimetleri topladığınızda güvenli eve geçip oyunu kazanabilirsiniz !");
         System.out.print("lütfen bir isim giriniz  :  ");
         String playerName = input.nextLine();
         Player player = new Player(playerName);
