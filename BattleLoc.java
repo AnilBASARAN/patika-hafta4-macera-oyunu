@@ -31,9 +31,14 @@ public abstract class BattleLoc extends Location {
     public boolean onLocation() {
 
         int obsNumber = this.randomObstacleNumber();
-        System.out.println("Şu an buradasınız :  " + this.getName());
-        System.out.println("Dikkatli ol! Burada " + obsNumber + " tane " + this.getObstacle().getName() + " yaşıyor  !");
+        System.out.println("ŞU AN BURADASINIZ :  " + this.getName().toUpperCase());
+        System.out.println("*****************************************");
+        System.out.println("*****************************************");
 
+        System.out.println("--------------DİKKATLİ OL!-------------- ");
+        System.out.println("*****************************************");
+        System.out.println("*****************************************");
+        System.out.println("Burada " + obsNumber + " tane " + this.getObstacle().getName().toUpperCase() + " YAŞIYOR  !");
         String selectCase;
         boolean isSelectCaseValid;
         System.out.print(" <S>avaş veya <K>aç :  ");
@@ -64,7 +69,7 @@ public abstract class BattleLoc extends Location {
 
 
         if(this.getPlayer().getHealth() <= 0){
-            System.out.println("Game OVER  !");
+            System.out.println("    GAME OVER    !");
             return false;
         }
 
@@ -221,7 +226,7 @@ public abstract class BattleLoc extends Location {
                     System.out.println("######################################################");
                     System.out.println("######################################################");
 
-                    System.out.println(i+ ". Düşmanı yendiniz ! ");
+                    System.out.println(i+ ". Düşmanı YENDİNİZ ! ");
                     System.out.println(this.getObstacle().getAward()+ " para kazandınız  !");
                     this.getPlayer().setMoney(this.getPlayer().getMoney()+this.getObstacle().getAward());
                     System.out.println("Güncel paranız : "+this.getPlayer().getMoney());
@@ -235,7 +240,7 @@ public abstract class BattleLoc extends Location {
             }
 
         if(this.getPlayer().getHealth() <= 0){
-            System.out.println("Öldünüz  !");
+            System.out.println("      ÖLDÜNÜZ!     ");
             return false;
         }
         return true;
@@ -243,19 +248,20 @@ public abstract class BattleLoc extends Location {
 
     public void afterHit(){
         System.out.println("Canınız : " + this.getPlayer().getHealth());
+        if(this.getPlayer().getHealth()<5) System.out.println("CANINIZ KRİTİK SEVİYEDE YAŞAMAK İÇİN KAÇ VE CAN DOLDUR");
         System.out.println( this.getObstacle().getName() +" Canı : " + this.getObstacle().getHealth());
         System.out.println();
     }
     public void playerStats() {
-        System.out.println("Oyuncu Değerleri");
+        System.out.println("----------SİZİN DEĞERLERİNİZ----------");
         System.out.println("######################################################");
         System.out.println("######################################################");
-        System.out.println("Sağlık : " + this.getPlayer().getHealth());
-        System.out.println("Silah : " + this.getPlayer().getWeaponName());
-        System.out.println("Zırh : " + this.getPlayer().getInventory().getArmors().getName());
-        System.out.println("Hasar : " + this.getPlayer().getTotalDamage());
-        System.out.println(("Bloklama :  " + this.getPlayer().getInventory().getArmors().getArmor()));
-        System.out.println("Para : " + this.getPlayer().getMoney());
+        System.out.println("----------Sağlık : " + this.getPlayer().getHealth()+"----------");
+        System.out.println("----------Silah : " + this.getPlayer().getWeaponName()+"----------");
+        System.out.println("----------Zırh : " + this.getPlayer().getInventory().getArmors().getName()+"----------");
+        System.out.println("----------Hasar : " + this.getPlayer().getTotalDamage());
+        System.out.println(("----------Bloklama :  " + this.getPlayer().getInventory().getArmors().getArmor())+"----------");
+        System.out.println("----------Para : " + this.getPlayer().getMoney()+"----------");
         System.out.println("######################################################");
         System.out.println( "*****************************************************");
         if(getVisitedBattleFields().split("").length != 1) System.out.println("Toplanan Ganimetler:" + getVisitedBattleFields());
@@ -264,13 +270,13 @@ public abstract class BattleLoc extends Location {
     }
 
     public void obstacleStats(int i) {
-        System.out.println(i+". "+this.getObstacle().getName() + "  Değerleri");
+        System.out.println(i+". "+this.getObstacle().getName() + "  DEĞERLERİ");
         System.out.println("------------------------------------------------------");
         System.out.println("######################################################");
         System.out.println("######################################################");
-        System.out.println("Sağlık : " + this.getObstacle().getHealth());
-        System.out.println("Hasar : " + this.getObstacle().getDamage());
-        System.out.println("Ödül : " + this.getObstacle().getAward());
+        System.out.println("----------Sağlık : " + this.getObstacle().getHealth()+"----------");
+        System.out.println("----------Hasar : " + this.getObstacle().getDamage()+"----------");
+        System.out.println("----------Ödül : " + this.getObstacle().getAward()+"----------");
         System.out.println("######################################################");
         System.out.println("######################################################");
         System.out.println();

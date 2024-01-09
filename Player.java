@@ -40,9 +40,12 @@ public class Player {
 public void selectChar() {
 
     GameChar[] charList = {new Samurai("Samuray",5,21,15), new Knight("Şovalye",8,24,5), new Archer( "Okçu",7,18,20)};
-
-    System.out.println("Karakterler");
-    System.out.println("---**--------------------------------------------------");
+    System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+    System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+    System.out.println("                  SEÇEBİLECEĞİNİZ KARAKTERLER                       ");
+    System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+    System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+    System.out.println("---**---------------------------------------------------------------");
     int count = 0;
     for (GameChar gameChar : charList) {
         if (gameChar.getName().split("").length <= 4)
@@ -60,8 +63,11 @@ public void selectChar() {
 
 
 
-    System.out.println("---**--------------------------------------------------");
-    System.out.print("Lütfen bir karakter giriniz:  ");
+    System.out.println("---**-----------------------------------------------------");
+    System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+    System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+    System.out.print("                    Lütfen bir karakter giriniz:                 ");
+
 
     do {
             do {
@@ -93,7 +99,9 @@ public void selectChar() {
     System.out.println(charList[selectChar-1].getName()+" Karakterini seçtiniz!");
 
     System.out.println(charList[selectChar-1]);
-    System.out.println("---------------------------------------------***-----------");
+    System.out.println("-----------------------------------------------------***-----------");
+    System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+    System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 
 }
 
@@ -116,7 +124,7 @@ public void selectChar() {
 
 
     public void  printPlayerInfo(){
-        System.out.println("Oyuncu Güncel Durum: ");
+        System.out.println("SİZİN GÜNCEL DURUMUNUZ: ");
         System.out.println(
                 "Silah = " + this.getWeaponName()+
                         ", Zırh adı = " + this.getArmorName() +
@@ -124,6 +132,7 @@ public void selectChar() {
                         ", Zırh = " + this.getTotalArmor() +
                 ", Sağlık = " + this.getHealth() +
                 ", Para = " + this.getMoney());
+        if(getHealth()<5 ) System.out.println("CANINIZ KRİTİK SEVİYEDE ! ");
 }
 
 

@@ -6,7 +6,13 @@ public class  Game {
 
     public void start(){
         System.out.println("--------------------------------------------------------------------");
-        System.out.println("Patika'nın Macera Adasına Hoşgeldiniz !");
+        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        System.out.println();
+        System.out.println();
+        System.out.println("----------Patika'nın Macera Adasına Hoşgeldiniz !----------");
+        System.out.println();
+        System.out.println();
         System.out.println("Bu adada sizi türlü tehlikeler bekliyor,  !");
         System.out.println("Okçu , Şovalye veya Samuray olarak maceradan maceraya koşacaksınız !");
         System.out.println("--------------------------------------------------------------------");
@@ -15,13 +21,26 @@ public class  Game {
         System.out.println("Orman, Nehir ve Mağaradaki görevleri tamamla ");
         System.out.println("Tüm Ganimetleri topladığınızda güvenli eve GİT ve  OYUNU KAZAN !");
         System.out.println("--------------------------------------------------------------------");
+        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         System.out.println("--------------------------------------------------------------------");
-        System.out.println("Savaşacağın karakterleri ve gideceğin lokasyonları ID sine uygun RAKAMLARI gir.");
+        System.out.println("Savaşacağın karakterleri ve gideceğin lokasyonları");
+        System.out.println(" ID sine uygun şekilde RAKAM gir.");
+        System.out.println("--------------------------------------------------------------------");
+        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+
+        System.out.println("--------------------------------------------------------------------");
         System.out.print("lütfen bir isim giriniz  :  ");
         String playerName = input.nextLine();
         Player player = new Player(playerName);
         System.out.println(player.getName()+" Hoşgeldin");
-        System.out.println("Türlü tehlike ve maceralarla dolu Karanlıklar ormanına giriş yaptın!    Bol şans " + playerName);
+        System.out.println("Türlü tehlike ve maceralarla dolu Karanlıklar ormanına giriş yaptın!");
+        System.out.println();
+        System.out.println();
+        System.out.println("                       BOL ŞANS " + playerName);
+        System.out.println();
+        System.out.println();
 
         System.out.println("Lütfen  bir Savaşçı tipi seç ve maceraya başla");
         player.selectChar();
@@ -47,8 +66,9 @@ public class  Game {
                String[] locationListObstacles = {"Güvenli ev", "ToolStore", "Zombi", "Vampir", "Ayı","Yılan"};
                String[] locationRewards = {"Can doluyor", "Eşya satın alabilirsin", "Yemek", "Odun", "Su","Maden"};
                player.printPlayerInfo();
-               System.out.println("Lokasyonlar");
-               System.out.println("--------------------------------------------------------------------");
+               System.out.println("                      LOKASYONLAR                     ");
+               System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+               System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
                System.out.println("ID: 0 Çıkış ");
 
                int count = 0;
@@ -68,8 +88,10 @@ public class  Game {
 
 
                do {
-                   System.out.println("--------------------------------------------**---");
-                   System.out.print("Lütfen bir lokasyon giriniz:  ");
+                   System.out.println("-----------------------------------------------------**------------");
+                   System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+                   System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+                   System.out.print("              Lütfen bir lokasyon giriniz:  ");
 
                    do {
 
@@ -88,7 +110,7 @@ public class  Game {
 
                if(selectLocation == 0){
 
-                   System.out.println("Oyundan çıkış yapılıyor....");
+                   System.out.println(".....Oyundan çıkış yapılıyor....");
                    System.out.println(" İyi günler "+ playerName +", yine bekleriz. ");
 
                    return;
@@ -104,7 +126,13 @@ public class  Game {
 
                else if (selectLocation == 2){
                    if(cave.getVisitedBattleFields().split("").length==15){
-                       System.out.println("Tüm görevleri tamamladın, Oyunu bitirmek için Güvenli eve git. ");
+                       System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+                       System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+                       System.out.println("TÜM GÖREVLERİ BAŞARIYLA TAMAMLADIN. ");
+                       System.out.println("TÜM GANİMETLERİ TOPLADIN. ");
+                       System.out.println("OYUNU KAZANMAK İÇİN GÜVENLİ EVE GİT. ");
+                       System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+                       System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
                        continue outerloop;
                    }
                    location = new ToolStore(player);
@@ -112,7 +140,13 @@ public class  Game {
 
                else if (selectLocation == 3){
                    if(cave.getVisitedBattleFields().split("").length==15){
-                       System.out.println("Tüm görevleri tamamladın, Oyunu bitirmek için Güvenli eve git. ");
+                       System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+                       System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+                       System.out.println("TÜM GÖREVLERİ BAŞARIYLA TAMAMLADIN. ");
+                       System.out.println("TÜM GANİMETLERİ TOPLADIN. ");
+                       System.out.println("OYUNU KAZANMAK İÇİN GÜVENLİ EVE GİT. ");
+                       System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+                       System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
                        continue outerloop;
                    }
                    if (!cave.getVisitedBattleFields().contains("Yemek")) location = new Cave(player);
@@ -129,7 +163,13 @@ public class  Game {
 
                else if (selectLocation == 4){
                    if(cave.getVisitedBattleFields().split("").length==15){
-                       System.out.println("Tüm görevleri tamamladın, Oyunu bitirmek için Güvenli eve git. ");
+                       System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+                       System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+                       System.out.println("TÜM GÖREVLERİ BAŞARIYLA TAMAMLADIN. ");
+                       System.out.println("TÜM GANİMETLERİ TOPLADIN. ");
+                       System.out.println("OYUNU KAZANMAK İÇİN GÜVENLİ EVE GİT. ");
+                       System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+                       System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
                        continue outerloop;
                    }
                    if (!cave.getVisitedBattleFields().contains("Odun")) location = new Forest(player);
@@ -144,7 +184,13 @@ public class  Game {
                }
                else if (selectLocation == 5){
                    if(cave.getVisitedBattleFields().split("").length==15){
-                       System.out.println("Tüm görevleri tamamladın, Oyunu bitirmek için Güvenli eve git. ");
+                       System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+                       System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+                       System.out.println("TÜM GÖREVLERİ BAŞARIYLA TAMAMLADIN. ");
+                       System.out.println("TÜM GANİMETLERİ TOPLADIN. ");
+                       System.out.println("OYUNU KAZANMAK İÇİN GÜVENLİ EVE GİT. ");
+                       System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+                       System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
                        continue outerloop;
                    }
                    if (!cave.getVisitedBattleFields().contains("Su")) location = new River(player);
